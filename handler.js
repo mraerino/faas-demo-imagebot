@@ -29,7 +29,7 @@ module.exports.search = (event, context, callback) => {
         if(!result) {
             return {
                 text: "Weird. The internet doesn't contain what you searched for."
-            }
+            };
         }
 
         return {
@@ -41,7 +41,7 @@ module.exports.search = (event, context, callback) => {
                 title: result.snippet
             }],
             response_type: "in_channel"
-        }
+        };
     }).catch(err => {
         return {
             text: "Sorry, there was an error :boom:"
