@@ -1,0 +1,19 @@
+service: faas-demo-slackbot
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+
+  region: eu-central-1
+
+
+functions:
+  search:
+    handler: handler.search
+
+    events:
+      - http:
+          path: search
+          method: post
+
+    environment: ${file(env.yml)}
