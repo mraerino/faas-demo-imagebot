@@ -6,7 +6,7 @@ const qs = require('qs');
 module.exports.search = (event, context, callback) => {
     const params = qs.parse(event.body);
 
-    if(params.token !== process.env.slackToken) {
+    if (params.token !== process.env.slackToken) {
         return callback(null, {
             statusCode: 403
         });
@@ -26,7 +26,7 @@ module.exports.search = (event, context, callback) => {
             resp.items[0] :
             null;
     }).then(result => {
-        if(!result) {
+        if (!result) {
             return {
                 text: "Weird. The internet doesn't contain what you searched for."
             };
